@@ -35,74 +35,74 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent } from "vue"
-    import {
+import { defineComponent } from "vue"
+import {
+    Dialog,
+    DialogOverlay,
+    TransitionRoot,
+    TransitionChild,
+    Switch
+} from '@headlessui/vue'
+
+interface SpacingDictionary {
+    [index: string]: string
+}
+
+export default defineComponent({
+    name: 'Modal',
+
+    emits: ['close'],
+
+    props: {
+        open: {
+            type: Boolean,
+            required: true
+        },
+        maxWidth: {
+            type: String,
+            default: () => '2xl'
+        },
+        maxHeight: {
+            type: String,
+            default: () => ''
+        }
+    },
+
+    components: {
         Dialog,
         DialogOverlay,
         TransitionRoot,
         TransitionChild,
         Switch
-    } from '@headlessui/vue'
+    },
 
-    interface SpacingDictionary {
-        [index: string]: string
-    }
-
-    export default defineComponent({
-        name: 'Modal',
-
-        emits: ['close'],
-
-        props: {
-            open: {
-                type: Boolean,
-                required: true
-            },
-            maxWidth: {
-                type: String,
-                default: () => '2xl'
-            },
-            maxHeight: {
-                type: String,
-                default: () => ''
+    computed: {
+        containerWidthClass(): string {
+            const widths = <SpacingDictionary>{
+                '300px': 'w-300px',
+                '2xl': 'w-600px',
+                '800px': 'w-800px',
+                '40': 'w-40',
             }
+
+            return widths[this.maxWidth]
         },
-
-        components: {
-            Dialog,
-            DialogOverlay,
-            TransitionRoot,
-            TransitionChild,
-            Switch
-        },
-
-        computed: {
-            containerWidthClass(): string {
-                const widths = <SpacingDictionary>{
-                    '300px': 'w-300px',
-                    '2xl': 'w-600px',
-                    '800px': 'w-800px',
-                    '40': 'w-40',
-                }
-
-                return widths[this.maxWidth]
-            },
-            containerHeightClass(): string {
-                const heights = <SpacingDictionary>{
-                    '600px': 'h-600px',
-                    '800px': 'h-800px',
-                    '40': 'h-40',
-                }
-
-                return heights[this.maxHeight]
+        containerHeightClass(): string {
+            const heights = <SpacingDictionary>{
+                '600px': 'h-600px',
+                '800px': 'h-800px',
+                '40': 'h-40',
             }
-        },
 
-        methods: {
-            close(event: boolean)
-            {
-                this.$emit('close', event)
-            }
+            return heights[this.maxHeight]
         }
-    })
+    },
+
+    methods: {
+        close(event: boolean)
+        {
+            this.$emit('close', event)
+        }
+    }
+})
 </script>

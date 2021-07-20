@@ -23,39 +23,39 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent, computed } from "vue"
-    import { Switch } from "@headlessui/vue"
+import { defineComponent, computed } from "vue"
+import { Switch } from "@headlessui/vue"
 
-    export default defineComponent({
-        name: 'Toggle',
+export default defineComponent({
+    name: 'Toggle',
 
-        emits: ['update:selected'],
+    emits: ['update:selected'],
 
-        props: {
-            selected: {
-                type: Boolean
-            }
-        },
+    props: {
+        selected: {
+            type: Boolean
+        }
+    },
 
-        components: {
-            Switch
-        },
+    components: {
+        Switch
+    },
 
-        setup(props, { emit })
-        {
-            const backgroundClass = computed((): string => {
-                return props.selected ? 'bg-green-200' : 'bg-trueGray-700'
-            })
+    setup(props, { emit })
+    {
+        const backgroundClass = computed((): string => {
+            return props.selected ? 'bg-green-200' : 'bg-trueGray-700'
+        })
 
-            const proxySelected = computed({
-                get: (): boolean => props.selected,
-                set: (val: boolean) => emit('update:selected', val)
-            })
+        const proxySelected = computed({
+            get: (): boolean => props.selected,
+            set: (val: boolean) => emit('update:selected', val)
+        })
 
-            return {
-                backgroundClass,
-                proxySelected
-            }
-        },
-    })
+        return {
+            backgroundClass,
+            proxySelected
+        }
+    },
+})
 </script>

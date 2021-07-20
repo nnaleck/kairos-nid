@@ -15,33 +15,33 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent } from "vue"
+import { defineComponent } from "vue"
 
-    export default defineComponent({
-        name: "Select",
+export default defineComponent({
+    name: "Select",
 
-        emits: ['update:modelValue'],
+    emits: ['update:modelValue'],
 
-        props: {
-            modelValue: {
-                required: true,
-            },
-            options: {
-                type: Array,
-                required: true,
-            },
-            optionKey: {
-                type: String,
-                default: () => 'key'
-            },
-            optionValue: {
-                type: String,
-                default: () => 'value'
-            },
-            disabledKey: {
-                type: String,
-                default: () => null
-            }
+    props: {
+        modelValue: {
+            required: true,
+        },
+        options: {
+            type: Array,
+            required: true,
+        },
+        optionKey: {
+            type: String,
+            default: () => 'key'
+        },
+        optionValue: {
+            type: String,
+            default: () => 'value'
+        },
+        disabledKey: {
+            type: String,
+            default: () => null
         }
-    })
+    }
+})
 </script>

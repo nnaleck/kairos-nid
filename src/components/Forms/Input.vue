@@ -25,47 +25,48 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent } from "vue"
-    export default defineComponent({
-        name: "Input",
+import { defineComponent } from "vue"
 
-        emits: ['update:modelValue'],
+export default defineComponent({
+    name: "Input",
 
-        props: {
-            id: {
-                type: String,
-                default: () => null
-            },
-            icon: {
-                type: String,
-                default: () => null
-            },
-            disabled: {
-                type: Boolean,
-                default: () => false
-            },
-            type: {
-                type: String,
-                default: () => 'text'
-            },
-            placeholder: {
-                type: String,
-                default: () => null
-            },
-            modelValue: {
-                required: true
-            }
+    emits: ['update:modelValue'],
+
+    props: {
+        id: {
+            type: String,
+            default: () => null
         },
-
-        computed: {
-            inputClass(): string  {
-                const classes =  [
-                    ! this.disabled ? 'bg-white' : 'bg-trueGray-200',
-                    this.icon ? 'pl-10' : 'pl-2.5'
-                ]
-
-                return classes.join(' ')
-            }
+        icon: {
+            type: String,
+            default: () => null
+        },
+        disabled: {
+            type: Boolean,
+            default: () => false
+        },
+        type: {
+            type: String,
+            default: () => 'text'
+        },
+        placeholder: {
+            type: String,
+            default: () => null
+        },
+        modelValue: {
+            required: true
         }
-    })
+    },
+
+    computed: {
+        inputClass(): string  {
+            const classes =  [
+                ! this.disabled ? 'bg-white' : 'bg-trueGray-200',
+                this.icon ? 'pl-10' : 'pl-2.5'
+            ]
+
+            return classes.join(' ')
+        }
+    }
+})
 </script>
