@@ -1,15 +1,22 @@
 <template>
-    <div class="bg-gray-300 flex flex-col p-5 space-y-5">
-        <Toggle v-model:selected="selected" />
+    <div>
+        <Modal :open="isOpen" @close="isOpen = $event">
+            Modal content
+        </Modal>
 
-        <Select
-            id="format"
-            v-model="selectedOption"
-            :options="options"
-        />
+        <div class="bg-gray-300 flex flex-col p-5 space-y-5">
+            <Toggle v-model:selected="selected" />
 
-        <Input v-model="inputValue"/>
+            <Select
+                id="format"
+                v-model="selectedOption"
+                :options="options"
+            />
+
+            <Input v-model="inputValue"/>
+        </div>
     </div>
+
 </template>
 
 <script lang="ts">
@@ -17,12 +24,14 @@ import { defineComponent, ref } from 'vue'
 import Toggle from "./components/Forms/Toggle.vue"
 import Select from "@/components/Forms/Select.vue"
 import Input from "@/components/Forms/Input.vue"
+import Modal from "@/components/Interface/Modal.vue"
 
 export default defineComponent({
     components: {
         Toggle,
         Select,
-        Input
+        Input,
+        Modal
     },
 
     setup()
@@ -35,13 +44,16 @@ export default defineComponent({
 
         const selected = ref<boolean>(false)
         const selectedOption = ref<string>(options[0].key)
-        const inputValue = ref<string>('')
+        const inputValue = ref<string>('Value')
+
+        const isOpen = ref<boolean>(true)
 
         return {
             selected,
             selectedOption,
             options,
-            inputValue
+            inputValue,
+            isOpen
         }
     }
 })
