@@ -1,7 +1,2 @@
-import NidToggle from "@/components/Toggle.vue"
-import NidBanner from "@/components/Banner.vue"
-
-export {
-    NidBanner,
-    NidToggle
-}
+export * as NidToggle from "@/components/Forms/Toggle.vue"
+export * as NidSelect from "@/components/Forms/Select.vue"

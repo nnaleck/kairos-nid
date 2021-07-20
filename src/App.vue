@@ -1,21 +1,42 @@
 <template>
-    <Toggle v-model="selected" />
+    <div class="bg-gray-300 flex flex-col p-5 space-y-5">
+        <Toggle v-model:selected="selected" />
+
+        <Select
+            id="format"
+            v-model="selectedOption"
+            :options="options"
+        />
+    </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import Toggle from "./components/Toggle.vue"
+import Toggle from "./components/Forms/Toggle.vue"
+import Select from "@/components/Forms/Select.vue"
 
 export default defineComponent({
     components: {
-        Toggle
+        Toggle,
+        Select
     },
 
     setup()
     {
-        const selected = ref(false)
+        const options = [
+            { key: 'first', value: 'First' },
+            { key: 'second', value: 'Second' },
+            { key: 'third', value: 'Third' },
+        ]
 
-        return { selected }
+        const selected = ref<boolean>(false)
+        const selectedOption = ref<string>(options[0].key)
+
+        return {
+            selected,
+            selectedOption,
+            options
+        }
     }
 })
 </script>
