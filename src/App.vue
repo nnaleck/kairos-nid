@@ -7,6 +7,8 @@
             v-model="selectedOption"
             :options="options"
         />
+
+        <Input v-model="inputValue"/>
     </div>
 </template>
 
@@ -14,11 +16,13 @@
 import { defineComponent, ref } from 'vue'
 import Toggle from "./components/Forms/Toggle.vue"
 import Select from "@/components/Forms/Select.vue"
+import Input from "@/components/Forms/Input.vue"
 
 export default defineComponent({
     components: {
         Toggle,
-        Select
+        Select,
+        Input
     },
 
     setup()
@@ -31,11 +35,13 @@ export default defineComponent({
 
         const selected = ref<boolean>(false)
         const selectedOption = ref<string>(options[0].key)
+        const inputValue = ref<string>('')
 
         return {
             selected,
             selectedOption,
-            options
+            options,
+            inputValue
         }
     }
 })
