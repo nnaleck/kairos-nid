@@ -1,27 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Toggle v-model="selected" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent, ref } from 'vue'
+import Toggle from "./components/Toggle.vue"
 
 export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-});
-</script>
+    components: {
+        Toggle
+    },
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+    setup()
+    {
+        const selected = ref(false)
+
+        return { selected }
+    }
+})
+</script>

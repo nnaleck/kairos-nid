@@ -1,13 +1,13 @@
 <template>
-$END$
+    <div class="bg-green-500">
+        <slot></slot>
+    </div>
 </template>
 
-<script>
-export default {
-name: "Banner"
-}
+<script lang="ts">
+import { defineComponent } from "vue"
+
+export default defineComponent({
+    name: 'Banner'
+})
 </script>
-
-<style scoped>
-
-</style>
