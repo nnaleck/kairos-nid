@@ -28,7 +28,6 @@ describe('Select test', () => {
     })
 
     it('reacts to a value change', async () => {
-
         await wrapper.find('select').setValue('two')
 
         expect(wrapper.emitted('update:modelValue')).toBeTruthy()
@@ -46,6 +45,7 @@ describe('Select test', () => {
             ],
             disabledKey: 'isDisabled'
         })
+
 
         const disabledOption = wrapper.find('select').find('option:disabled')
         expect(disabledOption.text()).toEqual('Three')
@@ -67,4 +67,4 @@ describe('Select test', () => {
         expect(options.length).toBe(wrapper.vm.options.length)
         expect(options[0].text()).toEqual('One')
     })
-});
+})

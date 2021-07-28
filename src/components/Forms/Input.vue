@@ -1,5 +1,8 @@
 <template>
-    <div :class="[! disabled ? 'text-trueGray-700' : 'text-trueGray-400', 'relative rounded']">
+    <div
+        :class="[! disabled ? 'text-trueGray-700' : 'text-trueGray-400', 'relative rounded']"
+        data-test="input-wrapper"
+    >
         <div
             v-if="icon"
             class="absolute inset-y-0 left-0 pl-2.5 flex items-center"
