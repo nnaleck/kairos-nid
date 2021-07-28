@@ -2,6 +2,7 @@
     <Switch
         v-model="proxySelected"
         :class="[backgroundClass, 'relative h-5 w-11 rounded-full p-0.5 inline-flex items-center']"
+        data-test="switch"
     >
         <span class="sr-only">Enable</span>
         <span
@@ -11,12 +12,14 @@
             <span
                 :class="[selected ? 'opacity-100 ease-in duration-200' : 'opacity-0 ease-out duration-200']"
                 class="absolute inset-0 w-full h-full rounded-full bg-green-500 border-2 border-white transform transition-opacity"
+                data-test="switch-enabled"
             />
 
             <!--Switch disabled icon-->
             <span
                 :class="[selected ? 'opacity-0 ease-out duration-200' : 'opacity-100 ease-in duration-200']"
                 class="absolute inset-0 w-full h-full bg-white rounded-full transform transition-opacity"
+                data-test="switch-disabled"
             />
         </span>
     </Switch>
