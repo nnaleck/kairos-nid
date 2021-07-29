@@ -1,7 +1,7 @@
 import { default as NidInput } from "../components/Forms/Input.vue"
 
 export default {
-    title: 'Input',
+    title: 'Forms/Input',
     component: NidInput,
     argTypes: {
         disabled: {

@@ -7,7 +7,7 @@ const options = [
 ]
 
 export default {
-    title: 'Select',
+    title: 'Forms/Select',
     component: NidSelect,
     argTypes: {
         modelValue: {
